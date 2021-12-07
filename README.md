@@ -1,2 +1,3 @@
 # FlagServer
-Flag server - images, names, places
+To update on Heroku:
+git push heroku main
