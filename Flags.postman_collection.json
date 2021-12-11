@@ -1,0 +1,172 @@
+{
+	"info": {
+		"_postman_id": "421ed319-bdd6-4063-a817-4c4c7abae908",
+		"name": "Flags",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "localhost:3001/flagsite/allFlags",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3001/mhsite/allAds",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"mhsite",
+						"allAds"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3001/flagsite/createFlag",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "adID",
+							"value": "adID123",
+							"type": "text"
+						},
+						{
+							"key": "dealerID",
+							"value": "dlrID123",
+							"type": "text"
+						},
+						{
+							"key": "flagData",
+							"value": "{\"age\":\"18 years old\"}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3001/flagsite/createFlag",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"flagsite",
+						"createFlag"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3001/flagsite/deleteFlag",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "adID",
+							"value": "adID123",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3001/mhsite/deleteAd",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"mhsite",
+						"deleteAd"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3001/flagsite/upload",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/Users/jeanflower/Documents/photos folder/IMG_3535.JPG"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3001/mhsite/upload",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"mhsite",
+						"upload"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3001/flagsite/image",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3001/mhsite/image?id=61ae7be4eb153207609f17ad",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"mhsite",
+						"image"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "61ae7be4eb153207609f17ad"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
