@@ -69,26 +69,30 @@ exports.downloadFile = function(req, res){
       } else {
         console.log(`file(s) found = ${docs}`);
         console.log(`file[0] found = ${docs[0]}`);
-        console.log(`file[0].filename found = ${docs[0].filename}`);
-        const filename = docs[0].filename;
-        // const contentType=file[0].contentType;
-        // setting response header
-        // res.append("Accept-Ranges", "bytes" );
-        // res.append("Content-Disposition", `attachment; filename=${filename}`);
-        // res.append("Content-Type", `${contentType}`);
-        // res.setHeader('Access-Control-Allow-Origin', `https://flag-client.herokuapp.com`);
-        res.setHeader('Access-Control-Allow-Origin', `*`);
-        // res.setHeader('Access-Control-Allow-Headers', `Origin, X-Requested-With, Content-Type, Accept`);
-        // console.log(JSON.stringify(res));
+        if(docs[0] == undefined){
+          res.send('No matching document found');
+        } else {
+          console.log(`file[0].filename found = ${docs[0].filename}`);
+          const filename = docs[0].filename;
+          // const contentType=file[0].contentType;
+          // setting response header
+          // res.append("Accept-Ranges", "bytes" );
+          // res.append("Content-Disposition", `attachment; filename=${filename}`);
+          // res.append("Content-Type", `${contentType}`);
+          // res.setHeader('Access-Control-Allow-Origin', `https://flag-client.herokuapp.com`);
+          res.setHeader('Access-Control-Allow-Origin', `*`);
+          // res.setHeader('Access-Control-Allow-Headers', `Origin, X-Requested-With, Content-Type, Accept`);
+          // console.log(JSON.stringify(res));
 
-        try{
-          console.log(`go to make a readStream`);
-          const readstream = gridFSBucket.openDownloadStreamByName(filename);
-          console.log(`pipe from readStream to res`);
-          readstream.pipe(res);
-          console.log(`pipe attached`);
-        } catch(err) {
-          console.log(`gridfs err = ${err}`);
+          try{
+            console.log(`go to make a readStream`);
+            const readstream = gridFSBucket.openDownloadStreamByName(filename);
+            console.log(`pipe from readStream to res`);
+            readstream.pipe(res);
+            console.log(`pipe attached`);
+          } catch(err) {
+            console.log(`gridfs err = ${err}`);
+          }
         }
       }
     }
